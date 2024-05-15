@@ -38,6 +38,17 @@ The grid should be searchable via:
 - By name: a text field that filters the requests by the name of the requestor.  If one types `uc`, then `Luca`, `Lucas`, and `Lucia` should all be part of the result, but `Alice` should not.
 - By message: a text field that filters the requests that contain the given string in the message.  If one types `ogin` then clicks on the search button, a request with the message `I cannot find the login button` should be displayed, but one with the message `I am an ogre` should not.
 
+## Database
+
+You need to create a table, called `contact_requests`, with fields with the following names: 
+
+- `name`
+- `email`
+- `phone`
+- `message`
+
+Using different names may cause the grading to fail. 
+
 ## Grading
 
 You can grade the assignment yourself, like this: 
