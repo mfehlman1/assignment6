@@ -1,6 +1,9 @@
 # contact_us: A contacts-us website
 
-In this assignment, you will create a contact form for a website.  
+In this assignment, you will create a contact form for a website. 
+The goal is to build the site using entirely server-side code, without any JavaScript.
+You should use py4ewb forms and grids to implement the site. 
+ 
 The website has two pages: 
 
 - `index`, which displays the contact form for visitors. 
@@ -89,4 +92,4 @@ To submit, first crete the zip file, via:
 
     python zipit.py
 
-This creates the file `submission.zip`.  Submit this file to [this Google form](https://docs.google.com/forms/d/e/1FAIpQLSdxuaOi01CDcVfkZBioVjjB-_5re0rWEGjZOkLqCt-bggoTgw/viewform?usp=sf_link), and **be sure to press SUBMIT on the form**.  Just uploading the file to the form is not enough. 
+This creates the file `submission.zip`.  Submit this file to the Google Form, and **be sure to press SUBMIT on the form**.  Just uploading the file to the form is not enough. 
