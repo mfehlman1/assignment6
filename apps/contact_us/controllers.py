@@ -13,7 +13,10 @@ def index():
     form = Form(db.contact_requests, csrf_session=session, formstyle=FormStyleBulma)
     print("Form object", form)
     if form.accepted:
+        print("Form accepted with:", form.vars)
         redirect(URL('index'))
+    elif form.errors:
+        print("Errors: ", form.errors)
     return dict(form=form)
 
 @action('contact_requests', method=['GET', 'POST'])
