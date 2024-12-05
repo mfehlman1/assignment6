@@ -6,11 +6,14 @@ from .models import get_user_email
 from py4web.utils.form import Form, FormStyleBulma
 from py4web.utils.grid import Grid, GridClassStyleBulma
 
-# Complete. 
+
 @action('index', method=['GET', 'POST'])
 @action.uses('index.html', db, session, T)
 def index():
-    return dict(content="Testing... ")
+    form = Form(db.contact_requests, csrf_session=session, formstyle=FormStyleBulma)
+    if form.accepted:
+        redirect(URL('index'))
+    return dict(form=form)
 
 @action('contact_requests', method=['GET', 'POST'])
 @action.uses(auth.user, 'contact_requests.html', db, session, T)
