@@ -30,6 +30,6 @@ def contact_requests():
             ['Search by Name', lambda val: db.contact_requests.name.contains(val)],
             ['Search by Message', lambda val: db.contact_requests.message.contains(val)],
         ],
-        grid_class_style=GridClassStyleBulma),
+        grid_class_style=GridClassStyleBulma)
     print("Grid object:", grid)
     return dict(grid=grid)
