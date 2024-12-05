@@ -11,7 +11,8 @@ from py4web.utils.grid import Grid, GridClassStyleBulma
 @action.uses('index.html', db, session, T)
 def index():
     form = Form(db.contact_requests, csrf_session=session, formstyle=FormStyleBulma)
-    print(form)
+    print("Form:", form)
+    print("Form HTML:", form.custom.dowidget() if form else "Form not created")
     if form.accepted:
         redirect(URL('index'))
     return dict(form=form)
