@@ -3,7 +3,16 @@
 <div class="section">
   <div class="container">
     <h1 class="title">Contact Us</h1>
-    {{=form.xml()}}
+    <form accept-charset="utf8" action="/contact_us" enctype="multipart/form-data" method="POST">
+      <div class="field"><label class="label" for="contact_requests_name">Name</label>
+      <div class="control"><input class="input" id="contact_requests_name" name="name" type="text"></div></div>
+      <div class="field"><label class="label" for="contact_requests_email">Email</label>
+      <div class="control"><input class="input" id="contact_requests_email" name="email" type="text"></div></div>
+      <div class="field"><label class="label" for="contact_requests_phone">Phone</label>
+      <div class="control"><input class="input" id="contact_requests_phone" name="phone" type="text"></div></div>
+      <div class="field"><label class="label" for="contact_requests_message">Message</label>
+      <div class="control"><textarea class="textarea" id="contact_requests_message" name="message"></textarea></div></div>
+      <div class="control"><input class="button is-primary" type="submit" value="Submit"></div>
   </div>
 </div>
 
