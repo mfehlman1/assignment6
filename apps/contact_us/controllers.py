@@ -7,10 +7,12 @@ from py4web.utils.form import Form, FormStyleBulma
 from py4web.utils.grid import Grid, GridClassStyleBulma
 
 
-@action('index')
-@action.uses('index.html')
+@action('index', method=['GET', 'POST'])
+@action.uses('index.html', db, session, T)
 def index():
-    return dict(form="This is a test form")
+    form = Form(db.contact_requests, csrf_session=session, formstyle=FormStyleBulma)
+    print("Form object:", form)
+    return dict(form=form)
 
 @action('contact_requests', method=['GET', 'POST'])
 @action.uses(auth.user, 'contact_requests.html', db, session, T)
