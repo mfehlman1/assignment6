@@ -19,5 +19,12 @@ def index():
 def contact_requests():
     if auth.current_user.get('email') != 'admin@example.com':
         redirect(URL('index'))
-    grid = Grid(db.contact_requests, orderby=~db.contact_requests.id, grid_class_style=GridClassStyleBulma)
+    grid = Grid(
+        db.contact_requests, 
+        orderby=~db.contact_requests.id,
+        search_queries=[
+            ['Search by Name', lambda val: db.contact_requests.name.contains(val)],
+            ['Search by Message', lambda val: db.contact_requests.message.contains(val)],
+        ],
+        grid_class_style=GridClassStyleBulma),
     return dict(grid=grid)
