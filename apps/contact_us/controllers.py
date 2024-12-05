@@ -10,12 +10,7 @@ from py4web.utils.grid import Grid, GridClassStyleBulma
 @action('index', method=['GET', 'POST'])
 @action.uses('index.html', db, session, T)
 def index():
-    form = Form(db.contact_requests, csrf_session=session, formstyle=FormStyleBulma)
-    print("Form creation success")
-    if form.accepted:
-        print("Form submission success")
-        redirect(URL('index'))
-    return dict(form=form)
+    return dict(content="Testing... ")
 
 @action('contact_requests', method=['GET', 'POST'])
 @action.uses(auth.user, 'contact_requests.html', db, session, T)
