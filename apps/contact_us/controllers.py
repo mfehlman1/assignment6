@@ -12,6 +12,7 @@ from py4web.utils.grid import Grid, GridClassStyleBulma
 def index():
     form = Form(db.contact_requests, csrf_session=session, formstyle=FormStyleBulma)
     print("Form object", form)
+    print("Form html:", form.custom.widget)
     if form.accepted:
         print("Form accepted with:", form.vars)
         redirect(URL('index'))
