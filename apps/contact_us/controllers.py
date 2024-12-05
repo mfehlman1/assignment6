@@ -11,11 +11,9 @@ from py4web.utils.grid import Grid, GridClassStyleBulma
 @action.uses('index.html', db, session, T)
 def index():
     form = Form(db.contact_requests, csrf_session=session, formstyle=FormStyleBulma)
-    if form is None:
-        print("Error")
-    else:
-        print("Success")
+    print("Form creation success")
     if form.accepted:
+        print("Form submission success")
         redirect(URL('index'))
     return dict(form=form)
 
