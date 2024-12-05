@@ -18,7 +18,9 @@ def index():
 @action.uses(auth.user, 'contact_requests.html', db, session, T)
 def contact_requests():
     print("contact_requests function was called")
+    print("Current user:", auth.current_user)
     if auth.current_user.get('email') != 'admin@example.com':
+        print("Redirecting to index: User is not admin@example.com")
         redirect(URL('index'))
     grid = Grid(
         db.contact_requests, 
