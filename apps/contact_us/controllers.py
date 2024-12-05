@@ -11,7 +11,8 @@ from py4web.utils.grid import Grid, GridClassStyleBulma
 @action.uses('index.html', db, session, T)
 def index():
     form = Form(db.contact_requests, csrf_session=session, formstyle=FormStyleBulma)
-    print("Form object:", form)
+    print("Form object type:", type(form))
+    print("Form XML output:", form.xml())
     return dict(form=form)
 
 @action('contact_requests', method=['GET', 'POST'])
