@@ -23,7 +23,7 @@ def contact_requests():
   #      print("Redirecting to index: User is not admin@example.com")
   #      redirect(URL('index'))
     grid = Grid(
-        db.contact_requests, 
+        query=(db.contact_requests.id > 0),
         orderby=~db.contact_requests.id,
         search_queries=[
             ['Search by Name', lambda val: db.contact_requests.name.contains(val)],
