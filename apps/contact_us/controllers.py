@@ -30,3 +30,10 @@ def contact_requests():
         grid_class_style=GridClassStyleBulma)
     deleteable=True
     return dict(grid=grid)
+
+@action('delete/<id>', method=['GET', 'POST'])
+@action.uses(db, auth.user)
+def delete(id=None):
+    if id:
+        db(db.contact_requests.id == id).delete()
+    redirect(URL('contact_requests'))
