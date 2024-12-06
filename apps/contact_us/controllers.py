@@ -20,7 +20,7 @@ def contact_requests():
     if auth.current_user.get('email') != 'admin@example.com':
         redirect(URL('index'))
     grid = Grid(
-        path=request.path,
+        path=URL('contact_requests'),
         query=(db.contact_requests.id > 0),
         orderby=~db.contact_requests.id,
         search_queries=[
@@ -35,6 +35,5 @@ def contact_requests():
 @action.uses(db, auth.user)
 def delete(id=None):
     if id:
-        print(f"Delete function called with ID: {id}")
         db(db.contact_requests.id == id).delete()
     redirect(URL('contact_requests'))
