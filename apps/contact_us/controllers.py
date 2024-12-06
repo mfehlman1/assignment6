@@ -36,4 +36,4 @@ def contact_requests():
 def delete(id=None):
     if id:
         db(db.contact_requests.id == id).delete()
-    redirect(URL('contact_requests'))
+    redirect(URL('contact_us/contact_requests'))
