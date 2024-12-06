@@ -27,7 +27,14 @@ def contact_requests():
             ['Search by Name', lambda val: db.contact_requests.name.contains(val)],
             ['Search by Message', lambda val: db.contact_requests.message.contains(val)],
         ],
-        grid_class_style=GridClassStyleBulma
+        grid_class_style=GridClassStyleBulma,
+        links=[
+            dict(header='', body=lambda row: A(
+                'Delete',
+                _href=URL('contact_us/delete', row['id']),  
+                _class='button is-small'
+            )),
+        ]
     )
     return dict(grid=grid)
 
