@@ -31,7 +31,7 @@ def contact_requests():
     )
     return dict(grid=grid)
 
-@action('delete/<id>', method=['GET', 'POST'])
+@action('contact_us/delete/<id>', method=['GET', 'POST'])
 @action.uses(db, auth.user)
 def delete(id=None):
     if id:
