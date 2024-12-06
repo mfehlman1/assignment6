@@ -20,7 +20,7 @@ def contact_requests():
     if auth.current_user.get('email') != 'admin@example.com':
         redirect(URL('index'))
     grid = Grid(
-        path=URL('/contact_us/contact_requests'),
+        path='/contact_us/contact_requests',
         query=(db.contact_requests.id > 0),
         orderby=~db.contact_requests.id,
         search_queries=[
@@ -36,4 +36,4 @@ def contact_requests():
 def delete(id=None):
     if id:
         db(db.contact_requests.id == id).delete()
-    redirect(URL('/contact_us/contact_requests'))
+    redirect(URL('contact_us/contact_requests'))
