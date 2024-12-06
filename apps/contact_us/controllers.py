@@ -28,13 +28,7 @@ def contact_requests():
             ['Search by Message', lambda val: db.contact_requests.message.contains(val)],
         ],
         grid_class_style=GridClassStyleBulma)
-    deleteable=True
+    deleteable=True,
     return dict(grid=grid)
 
-@action('delete/<id>', method=['GET', 'POST'])
-@action.uses(db, auth.user)
-def delete(id=None):
-    if id:
-        print(f"Delete function called with ID: {id}")
-        db(db.contact_requests.id == id).delete()
-    redirect(URL('contact_requests'))
+
