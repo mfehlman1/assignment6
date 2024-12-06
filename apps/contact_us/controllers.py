@@ -36,6 +36,7 @@ def contact_requests():
 @action('contact_us/delete/<id>', method=['GET', 'POST'])
 @action.uses(db, auth.user)
 def delete(id=None):
+    print(f"Delete with ID: {id}")
     if id:
         db(db.contact_requests.id == id).delete()
     redirect(URL('contact_us/contact_requests'))
