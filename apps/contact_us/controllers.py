@@ -19,8 +19,10 @@ def index():
 def contact_requests():
     if auth.current_user.get('email') != 'admin@example.com':
         redirect(URL('index'))
+    grid_path=URL('/contact_us/contact_requests')
+    print("Grid path being used:", grid_path),
     grid = Grid(
-        path='/contact_us/contact_requests',
+        path=grid_path,
         query=(db.contact_requests.id > 0),
         orderby=~db.contact_requests.id,
         search_queries=[
