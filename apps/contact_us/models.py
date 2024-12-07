@@ -8,7 +8,7 @@ def get_user_email():
 def get_time():
     return datetime.datetime.utcnow()
 
-db.define_table(
+db.define_table( #table for the contact requests database
     'contact_requests',
     Field('name', 'string', requires=IS_NOT_EMPTY(), label='Name'),
     Field('email', 'string', requires=IS_EMAIL(), label='Email'),
@@ -16,4 +16,3 @@ db.define_table(
     Field('message', 'text', label='Message'),
 )
 db.commit()
-
